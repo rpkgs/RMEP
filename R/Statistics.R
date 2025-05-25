@@ -8,8 +8,8 @@
 #' @return A list of statistical criterias
 #' @importFrom hydroGOF gof
 #' @examples
-#' RMEP_sta (MEP=c(1:100),obs=c(5:104))
+#' RMEP_sta(MEP = c(1:100), obs = c(5:104))
 #' @export
-RMEP_sta <- function(MEP,obs){
-  gof(sim = MEP,obs = obs)
+RMEP_sta <- function(MEP, obs) {
+  gof(sim = MEP, obs = obs)
 }

@@ -23,5 +23,5 @@ Classification and regression trees ("cart"), Unconditional mean imputation ("me
 Users can select method for imputations and the default is Predictive mean matching("pmm").
 }
 \examples{
-RMEP_mice(airquality,method= 'pmm')
+RMEP_mice(airquality, method = "pmm")
 }

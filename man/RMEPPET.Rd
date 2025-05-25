@@ -26,6 +26,6 @@ A list concludes latent heat flux(EMEP,W/m2),sensible heat flux(HMEP,W/m2),groun
 Calculate energy fluxes and potential evapotranspiration based on the MEP model
 }
 \examples{
-RMEPPET(Rn=200,RnL=100,Ts=20,type=1)
-RMEPPET(Rn=300,RnL=100,Ts=25,I=800,z=8,type=1)
+RMEPPET(Rn = 200, RnL = 100, Ts = 20, type = 1)
+RMEPPET(Rn = 300, RnL = 100, Ts = 25, I = 800, z = 8, type = 1)
 }

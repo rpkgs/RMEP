@@ -12,29 +12,22 @@
 #' @return A dataframe with no missing values
 #' @importFrom mice mice complete
 #' @examples
-#' RMEP_mice(airquality,method= 'pmm')
+#' RMEP_mice(airquality, method = "pmm")
 #' @export
-RMEP_mice=function(data,method= 'pmm'){{
-  #library(mice)
-  completeData=mice(data, m=5, maxit = 50, seed = 500,printFlag = FALSE)  ####  Predictive mean matching
-  if(method=="midastouch"){                                   #### Weighted predictive mean matching
-    completeData=mice(data, m=5, maxit = 50, method = 'midastouch', seed = 500,printFlag = FALSE)
+RMEP_mice <- function(data, method = "pmm") {{
+  # library(mice)
+  completeData <- mice(data, m = 5, maxit = 50, seed = 500, printFlag = FALSE) ####  Predictive mean matching
+  if (method == "midastouch") { #### Weighted predictive mean matching
+    completeData <- mice(data, m = 5, maxit = 50, method = "midastouch", seed = 500, printFlag = FALSE)
+  } else if (method == "cart") {
+    completeData <- mice(data, m = 5, maxit = 50, method = "cart", seed = 500, printFlag = FALSE)
+  } else if (method == "mean") {
+    completeData <- mice(data, m = 5, maxit = 50, method = "mean", seed = 500, printFlag = FALSE)
+  } else if (method == "quadratic") {
+    completeData <- mice(data, m = 5, maxit = 50, method = "quadratic", seed = 500, printFlag = FALSE)
+  } else {
+    completeData <- mice(data, m = 5, maxit = 50, method = "norm.predict", seed = 500, printFlag = FALSE)
   }
-
-  else if(method=="cart"){
-    completeData=mice(data, m=5, maxit = 50, method = 'cart', seed = 500,printFlag = FALSE)
-  }
-  else if(method=="mean"){
-    completeData=mice(data, m=5, maxit = 50, method = 'mean', seed = 500,printFlag = FALSE)
-  }
-  else if(method=="quadratic"){
-    completeData=mice(data, m=5, maxit = 50, method = 'quadratic', seed = 500,printFlag = FALSE)
-  }
-
-  else{
-    completeData=mice(data, m=5, maxit = 50, method = 'norm.predict', seed = 500,printFlag = FALSE)
-  }
-  completeData <- complete(completeData,1)
+  completeData <- complete(completeData, 1)
   return(completeData)
-}
-}
+}}

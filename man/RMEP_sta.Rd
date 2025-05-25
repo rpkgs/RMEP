@@ -20,5 +20,5 @@ The function is developed based on the hydroGOF package.
 Quantitative statistics included are: Mean Error (ME), Mean Absolute Error (MAE), Root Mean Square Error (RMSE), Normalized Root Mean Square Error (NRMSE), Pearson product-moment correlation coefficient (r), Spearman Correlation coefficient (r.Spearman), Coefficient of Determination (R2), Ratio of Standard Deviations (rSD), Nash-Sutcliffe efficiency (NSE), Modified Nash-Sutcliffe efficiency (mNSE), Relative Nash-Sutcliffe efficiency (rNSE), Index of Agreement (d), Modified Index of Agreement (md), Relative Index of Agreement (rd), Coefficient of Persistence (cp), Percent Bias (pbias), Kling-Gupta efficiency (KGE), the coef. of determination multiplied by the slope of the linear regression between 'sim' and 'obs' (bR2), and volumetric efficiency (VE).
 }
 \examples{
-RMEP_sta (MEP=c(1:100),obs=c(5:104))
+RMEP_sta(MEP = c(1:100), obs = c(5:104))
 }

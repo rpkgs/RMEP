@@ -28,6 +28,6 @@ A list includes latent heat flux(EMEP,W/m2),sensible heat flux(HMEP,W/m2),ground
 Calculate actual evapotranspiration, potential evapotranspiration, senseble heat flux and ground heat flux based on the maximum entropy production(MEP) model.
 }
 \examples{
-RMEP(Rn=200,RnL=100,qs=0.003,Ts=20,type=1)
-RMEP(Rn=300,RnL=100,qs=0.004,Ts=25,I=800,z=8,type=1)
+RMEP(Rn = 200, RnL = 100, qs = 0.003, Ts = 20, type = 1)
+RMEP(Rn = 300, RnL = 100, qs = 0.004, Ts = 25, I = 800, z = 8, type = 1)
 }

@@ -20,5 +20,5 @@ specific humidity(unit:kg/kg)
 calculate specific humidity for MEP model input
 }
 \examples{
-Shum(TA=20,PA=101,RH=50)
+Shum(TA = 20, PA = 101, RH = 50)
 }
