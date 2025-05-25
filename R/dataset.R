@@ -25,7 +25,7 @@
 #' Variable for MEP model example.
 #' @name timeseries
 #' 
-#' A dataframe includes 3 variables timeseries.
+#' @description A dataframe includes 3 variables timeseries.
 #'
 #' @format A dataframe includes 3 variables
 #' \describe{

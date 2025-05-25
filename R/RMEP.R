@@ -84,36 +84,38 @@ RMEP <- function(Rn, RnL, qs, Ts, I = 800, z = 2.5, type = 1) {
 
   if (type == 1) { 
     # Bare Soil
-    for (n in c(1:length(inds))) {
+    for (i in c(1:length(inds))) {
+      j = inds[i]
       temp <- fzero(function(H) {
-        abs(H)^(e16) * (B[inds[n]] + 1) * H +
-          Bsr[inds[n]] * IdI0[inds[n]] * H - abs(H)^(e16) * Rn[inds[n]]
-      }, 0.5 * Rn[inds[n]])[1]
-      HMEP[inds[n]] <- temp[[1]]
-      EMEP[inds[n]] <- B[inds[n]] * HMEP[[inds[n]]]
-      GMEP[inds[n]] <- Rn[inds[n]] - EMEP[inds[n]] - HMEP[[inds[n]]]
+        abs(H)^(e16) * (B[j] + 1) * H + Bsr[j] * IdI0[j] * H - abs(H)^(e16) * Rn[j]
+      }, 0.5 * Rn[j])[1]
+      
+      HMEP[j] <- temp[[1]]
+      EMEP[j] <- B[j] * HMEP[[j]]
+      GMEP[j] <- Rn[j] - EMEP[j] - HMEP[[j]]
     }
   } else if (type == 2) { 
     # Canopy
-    for (n in c(1:length(inds))) {
+    for (i in c(1:length(inds))) {
+      j = inds[i]
       temp <- fzero(function(H) {
-        (B[inds[n]] + 1) * H -
-          Rn[inds[n]]
-      }, 0.5 * Rn[inds[n]])[1]
-      HMEP[inds[n]] <- temp[[1]]
-      EMEP[inds[n]] <- Rn[inds[n]] - HMEP[[inds[n]]]
-      GMEP[inds[n]] <- 0
+        (B[j] + 1) * H - Rn[j]
+      }, 0.5 * Rn[j])[1]
+      
+      HMEP[j] <- temp[[1]]
+      EMEP[j] <- Rn[j] - HMEP[[j]]
+      GMEP[j] <- 0
     }
   } else { 
     # Water-snow-ice (type == 3)
-    for (n in c(1:length(inds))) {
+    for (i in c(1:length(inds))) {
+      j = inds[i]
       temp <- fzero(function(H) {
-        abs(H)^(e16) * (B[inds[n]] + 1) * H +
-          Bsr[inds[n]] * IdI0[inds[n]] * H - abs(H)^(e16) * Rn[inds[n]]
-      }, 0.5 * Rn[inds[n]])[1]
-      HMEP[inds[n]] <- temp[[1]]
-      EMEP[inds[n]] <- B[inds[n]] * HMEP[inds[n]]
-      GMEP[inds[n]] <- RnL[inds[n]] - HMEP[inds[n]] - EMEP[inds[n]]
+        abs(H)^(e16) * (B[j] + 1) * H + Bsr[j] * IdI0[j] * H - abs(H)^(e16) * Rn[j]
+      }, 0.5 * Rn[j])[1]
+      HMEP[j] <- temp[[1]]
+      EMEP[j] <- B[j] * HMEP[j]
+      GMEP[j] <- RnL[j] - HMEP[j] - EMEP[j]
     }
   }
   return(list(ETMEP = EMEP * 0.0352653, HMEP = HMEP, EMEP = EMEP, GMEP = GMEP, inds = inds)) # 1W/m2=0.0352653 mm/day
